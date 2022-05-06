@@ -1,0 +1,91 @@
+$purple: #DDCAD9;
+* {
+  background: $purple;
+  padding: 0;
+  margin: 0;
+  // padding: 10px
+}
+
+button {
+  background: springgreen;
+}
+
+.expense-tracker-container {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.header {
+  // border: 1px solid #646060;
+  padding: 5px;
+  display: grid;
+  // grid-template-columns: 4fr 1fr;
+  // grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.logo {
+  // width: 100%;
+  // width: 20%;
+  height: 20%;
+  order: -1;
+}
+
+.body {
+  display: grid;
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.budget {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  grid-gap: 20px;
+  justify-items: center;
+  align-items: center;
+  border: 0.5px solid black;
+  padding: 20px;
+}
+
+.budget-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 2fr 1fr 1fr ;
+  justify-items: center;
+  align-items: center;
+}
+
+.budget-input {}
+
+.expense-form {
+  border: 1px solid #646060;
+  padding: 20px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, 3fr) 1fr;
+  justify-content: start;
+}
+
+.expense-list-area {
+  border: 1px solid #646060;
+  padding: 20px; 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.expense-list {
+  display: grid;
+  grid-gap: 10px;
+  // justify-items: center;
+}
+
+.expense-item {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  // grid-template-columns: repeat(3, fr);
+  // grid-gap: 10px;
+}
+
