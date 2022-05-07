@@ -1,19 +1,13 @@
 import React from 'react'
-// import Checkbox from './components/Checkbox'
-// import ExerciseState from './components/exercise/ExerciseState'
-// import NewTodos from './components/exercise/NewTodos'
-import ExpenseTracker from './components/BudgetApp/ExpenseTracker'
-// import TodoList from './components/TodoList'
+// import ExpenseTracker from './components/BudgetApp/ExpenseTracker'
+import Todos from './components/Todos/Todos'
 
 const App = () => {
 
   return (
     <div className='App'>
-      <ExpenseTracker />
-      {/* <Checkbox /> */}
-      {/* <Todo /> */}
-      {/* <TodoList /> */}
-      {/* <ExerciseState /> */}
+      <Todos />
+      {/* <ExpenseTracker /> */}
       {/* <NewTodos /> */}
     </div>
   )
