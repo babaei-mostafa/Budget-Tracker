@@ -1,12 +1,14 @@
 import React, { useContext } from 'react'
-import { BudgetContext } from './Context'
+import { BudgetContext } from './BudgetContext'
+// import { BudgetContext } from './Context'
 import ExpenseItem from './ExpenseItem'
 
 const ExpenseList = () => {
 
-  const [budget, , expenses, , , , , , myBudget] = useContext(BudgetContext)
+  // const [budget, , expenses, , , , , , myBudget] = useContext(BudgetContext)
+  const budgetContext = useContext(BudgetContext)
 
-  const totalExpense = expenses.reduce((total, expense) => { return total + parseInt(expense.cost)}, 0)
+  const totalExpense = budgetContext!.expenses.reduce((total, expense) => { return total + expense.cost}, 0)
 
   // let totalExpense = 0
   // expenses.forEach(expense => totalExpense += parseInt(expense.cost))
@@ -17,7 +19,7 @@ const ExpenseList = () => {
 
       <div>
         <p>Total Expenses: ${totalExpense}</p>
-        <p>Remaining: ${parseInt(myBudget) - totalExpense}</p>
+        <p>Remaining: ${budgetContext!.myBudget - totalExpense}</p>
       </div>
 
       <div className='expense-list'>
