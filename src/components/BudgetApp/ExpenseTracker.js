@@ -1,6 +1,7 @@
 import React, { useReducer, useState } from 'react'
 import BudgetForm from './BudgetForm'
-import { BudgetContext } from './Context'
+import { BudgetContextProvider } from './BudgetContext'
+// import { BudgetContext } from './Context'
 import { v4 as uuidv4 } from 'uuid'
 import ExpenseForm from './ExpenseForm'
 import ExpenseList from './ExpenseList'
@@ -31,13 +32,13 @@ const newExpense = (name, cost) => {
 
 const ExpenseTracker = () => {
 
-  const [ budget, setBudget ] = useState(0)
-  const [ expenses, dispatchExpense ] = useReducer(reducer, [])
-  const [inputName, setInputName] = useState('')
-  const [inputCost, setInputCost] = useState(0)
-  const [ myBudget, setMyBudget ] = useState(0)
+  // const [ budget, setBudget ] = useState(0)
+  // const [ expenses, dispatchExpense ] = useReducer(reducer, [])
+  // const [inputName, setInputName] = useState('')
+  // const [inputCost, setInputCost] = useState(0)
+  // const [ myBudget, setMyBudget ] = useState(0)
 
-  const contextValues = [budget, setBudget, expenses, dispatchExpense, inputName, setInputName, inputCost, setInputCost, myBudget, setMyBudget]
+  // const contextValues = [budget, setBudget, expenses, dispatchExpense, inputName, setInputName, inputCost, setInputCost, myBudget, setMyBudget]
 
   return (
 
@@ -49,12 +50,14 @@ const ExpenseTracker = () => {
       </div>
 
       <div className='body'>
-        <BudgetContext.Provider
-          value={contextValues}>
+        {/* <BudgetContext.Provider value={contextValues}> */}
+        <BudgetContextProvider>
           <BudgetForm />
           <ExpenseForm />
           <ExpenseList />
-        </BudgetContext.Provider>
+        </BudgetContextProvider>
+          
+        {/* </BudgetContext.Provider> */}
       </div>
 
     </div>

@@ -1,16 +1,24 @@
 import React, { useContext } from 'react'
-import { BudgetContext } from './Context'
+// import { BudgetContext } from './Context'
+import { BudgetContext } from './BudgetContext'
 import './ExpenseTracker.scss'
 
 const BudgetForm = () => {
 
-  const [budget, setBudget, , , , , , , myBudget, setMyBudget] = useContext(BudgetContext)
+  // const [budget, setBudget, , , , , , , myBudget, setMyBudget] = useContext(BudgetContext)
+  const budgetContext = useContext(BudgetContext)
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setMyBudget(budget)
-    setBudget(0)
+    budgetContext!.setMyBudget(budgetContext!.budget)
+    budgetContext!.setBudget(0)
   }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = parseInt(e.target.value)
+    budgetContext!.setBudget(newValue)
+  } 
+    
 
   return (
 
@@ -22,8 +30,8 @@ const BudgetForm = () => {
           <label>Set Your Budget</label>
           <input
             type='number'
-            value={budget}
-            onChange={e => setBudget(e.target.value)}
+            value={budgetContext!.budget}
+            onChange={handleChange}
           />
         </div>
 
@@ -31,7 +39,7 @@ const BudgetForm = () => {
         
       </form>
 
-    <p>${myBudget}</p>
+    <p>${budgetContext!.myBudget}</p>
 
     </div>
   )

@@ -73,8 +73,10 @@ export const BudgetContextProvider = ({children}: BudgetContextProviderProps) =>
   const [inputCost, setInputCost] = useState(0)
   const [ myBudget, setMyBudget ] = useState(0)
 
+  const budgetContext = {budget, setBudget, expenses, dispatchExpenses, inputName, setInputName, inputCost, setInputCost, myBudget, setMyBudget}
+
   return(
-    <BudgetContext.Provider value={{budget, setBudget, expenses, dispatchExpenses, inputName, setInputName, inputCost, setInputCost, myBudget, setMyBudget}}>{children}</BudgetContext.Provider>
+    <BudgetContext.Provider value={budgetContext}>{children}</BudgetContext.Provider>
   )
 
 }
